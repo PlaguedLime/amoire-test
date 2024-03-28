@@ -1,0 +1,22 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/**/*.{ts,tsx}"],
+  "out": "docs",
+  "exclude": [
+    "src/main.tsx",
+    "src/**/*.gen.{ts,tsx}",
+    "src/routes/**/*",
+    "src/**/*.d.{ts,tsx}"
+  ],
+  "plugin": [
+    "typedoc-material-theme",
+    "typedoc-plugin-mdn-links",
+    "typedoc-plugin-inline-sources",
+    "typedoc-plugin-zod",
+    "typedoc-plugin-missing-exports",
+    "typedoc-plugin-rename-defaults",
+    "typedoc-theme-hierarchy"
+  ],
+  "themeColor": "#512878",
+  "theme": "hierarchy"
+}
