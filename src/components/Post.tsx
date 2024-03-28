@@ -48,7 +48,9 @@ export default function Post({ title, id, body, readMore = false }: PostProps) {
           </Button>
         )}
       </div>
-      <p className={readMore ? 'truncate' : undefined}>{body}</p>
+      <p className={readMore ? 'truncate-lines truncate-lines-3' : undefined}>
+        {body}
+      </p>
     </section>
   )
 }

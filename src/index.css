@@ -5,6 +5,7 @@
 @layer base {
   :root {
     @apply scrollbar-track-purple-800 scrollbar-thumb-white/10 scrollbar-thumb-rounded-full;
+    --truncate-lines: 1;
   }
 
   * {
@@ -19,6 +20,42 @@
   #root {
     @apply min-h-screen h-fit bg-gray-50;
   }
+}
+
+.truncate-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--truncate-lines);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 2ch;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    background: inherit;
+    mask-image: linear-gradient(to left, black, transparent);
+    transition: .2s;
+  }
+}
+
+.truncate-lines-2 {
+  --truncate-lines: 2;
+}
+
+.truncate-lines-3 {
+  --truncate-lines: 3;
+}
+
+.truncate-lines-4 {
+  --truncate-lines: 4;
+}
+
+.truncate-lines-5 {
+  --truncate-lines: 5;
 }
 
 @font-face {
