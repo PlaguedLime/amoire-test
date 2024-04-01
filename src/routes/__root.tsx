@@ -17,7 +17,7 @@ function Root() {
   return (
     <>
       <ScrollRestoration />
-      <header className='flex flex-col gap-1 pt-1 sm:flex-row sm:pt-0 justify-center sm:justify-between px-10 bg-purple-800 text-gray-300 items-center sticky top-0 shadow-xl'>
+      <header className='flex flex-col gap-1 pt-1 sm:flex-row sm:pt-0 justify-center sm:justify-between px-10 bg-purple-800 text-gray-300 items-center sticky top-0 shadow-xl z-10'>
         <h1 className='text-3xl font-bold '>
           <Link to='/'>Armoire Dev</Link>
         </h1>

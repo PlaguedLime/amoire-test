@@ -22,6 +22,19 @@
   }
 }
 
+.textarea {
+  @apply relative;
+}
+
+.textarea > div:not(:first-child) {
+  @apply mt-4;
+}
+
+.textarea::before {
+  @apply absolute top-0 left-0 text-gray-400 p-[inherit] m-[inherit] pointer-events-none;
+  content: attr(data-placeholder);
+}
+
 /** Custom multi-line text truncation */
 .truncate-lines {
   display: -webkit-box;

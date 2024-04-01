@@ -6,9 +6,16 @@ import Button from './Button'
 
 export interface PostProps extends PostSchema {
   readMore?: boolean
+  children?: React.ReactNode
 }
 
-export default function Post({ title, id, body, readMore = false }: PostProps) {
+export default function Post({
+  title,
+  id,
+  body,
+  readMore = false,
+  children
+}: PostProps) {
   const router = useRouter()
 
   return (
@@ -51,6 +58,7 @@ export default function Post({ title, id, body, readMore = false }: PostProps) {
       <p className={readMore ? 'truncate-lines truncate-lines-3' : undefined}>
         {body}
       </p>
+      {children}
     </section>
   )
 }
