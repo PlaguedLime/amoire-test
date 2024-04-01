@@ -1,10 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
+import Toaster from './components/Toaster'
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <Toaster position={'right'} />
       <RouterProvider router={router} />
     </QueryClientProvider>
   )

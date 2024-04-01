@@ -443,3 +443,20 @@ export async function del<Schema extends ZodType = ZodType>(
   if (raw.error) throw new Error(raw.message ?? `Error fetching ${name}`)
   return schema ? schema.parse(raw) : raw
 }
+
+// If we are in a development environment, add the functions to the global object for debugging
+if (import.meta.env.DEV) {
+  // This is necessary so that the functions can be accessed in the browser console, but doesn't type them as globals
+  const Window = window as unknown as {
+    get: typeof get
+    post: typeof post
+    put: typeof put
+    patch: typeof patch
+    del: typeof del
+  }
+  Window.get = get
+  Window.post = post
+  Window.put = put
+  Window.patch = patch
+  Window.del = del
+}
