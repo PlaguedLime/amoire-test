@@ -2,12 +2,20 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["src/**/*.{ts,tsx}"],
   "out": "docs",
+  "media": "media",
+  "sort": [
+    "kind",
+    "instance-first",
+    "alphabetical"
+  ],
+  "categorizeByGroup": false,
   "exclude": [
     "src/main.tsx",
     "src/**/*.gen.{ts,tsx}",
     "src/routes/**/*",
     "src/**/*.d.{ts,tsx}"
   ],
+  "excludeExternals": true,
   "plugin": [
     "typedoc-material-theme",
     "typedoc-plugin-mdn-links",
@@ -18,5 +26,5 @@
     "typedoc-theme-hierarchy"
   ],
   "themeColor": "#512878",
-  "theme": "hierarchy"
+  "theme": "hierarchy",
 }

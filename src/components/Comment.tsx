@@ -2,6 +2,11 @@ import { CommentSchema } from 'src/api/comment'
 
 export interface CommentProps extends CommentSchema {}
 
+/**
+ * Renders a comment
+ * @param props - The props for the component
+ * @returns The comment
+ */
 export default function Comment({ name, email, body }: CommentProps) {
   return (
     <section className='border border-gray-400 rounded-xl shadow-md p-4 bg-white'>

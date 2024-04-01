@@ -22,6 +22,7 @@
   }
 }
 
+/** Custom multi-line text truncation */
 .truncate-lines {
   display: -webkit-box;
   -webkit-line-clamp: var(--truncate-lines);
@@ -57,7 +58,9 @@
 .truncate-lines-5 {
   --truncate-lines: 5;
 }
+/** Custom multi-line text truncation */
 
+/* Define Roboto Font Family */
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -153,3 +156,4 @@
   src: local('Roboto-BlackItalic')
     url('src/assets/fonts/Roboto-BlackItalic.ttf') format('truetype');
 }
+/* Define Roboto Font Family */

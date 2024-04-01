@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { queryOptions } from '@tanstack/react-query'
+import { get } from 'src/utilities/request'
 
 export const PostSchema = z.object({
   userId: z.number(),
@@ -10,15 +11,12 @@ export const PostSchema = z.object({
 
 export type PostSchema = z.infer<typeof PostSchema>
 
-export async function getPost(id: number) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-  if (!res.ok) {
-    if (res.status === 404) throw new Error('Post was not found')
-    throw new Error('Failed to fetch post')
-  }
-  const raw = await res.json()
-  if (raw.error) throw new Error(raw.message ?? 'Error fetching post')
-  return PostSchema.parse(raw)
+export function getPost(id: number) {
+  return get(
+    'post',
+    `https://jsonplaceholder.typicode.com/posts/${id}`,
+    PostSchema
+  )
 }
 
 export function createPostQueryOptions(id: number) {
