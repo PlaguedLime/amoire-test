@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { PostSchema, patchPost, postPost } from 'src/api/post'
 import Textarea from './Textarea'
 import Button from './Button'
@@ -18,6 +18,7 @@ export default function PostEditor({
 }: PostEditorProps) {
   const [characterCount, setCharacterCount] = useState(0)
   const formRef = useRef<HTMLFormElement>(null)
+  const textareaRef = useRef<HTMLDivElement>(null)
   const queryClient = useQueryClient()
 
   const onDoneRef = useRef(onDone)
@@ -44,6 +45,12 @@ export default function PostEditor({
     [id, queryClient]
   )
 
+  useEffect(() => {
+    const { current: textarea } = textareaRef
+    if (!textarea) return
+    setCharacterCount(textarea.innerText.trim().length)
+  }, [])
+
   return (
     <form
       ref={formRef}
@@ -60,6 +67,7 @@ export default function PostEditor({
         />
       </div>
       <Textarea
+        ref={textareaRef}
         defaultValue={body}
         name='body'
         placeholder='Enter your content...'
